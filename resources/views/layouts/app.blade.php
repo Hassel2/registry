@@ -78,6 +78,12 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="">
+            <div class="">
+              <span class="text-muted">© 2022 ФГБУ «ВНИГНИ», Inc</span>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
