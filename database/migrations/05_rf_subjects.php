@@ -18,6 +18,7 @@ return new class extends Migration
 			$table->string('name', 200);
 			$table->string('short_name', 200);
 			$table->foreignId('federal_district')->constrained('federal_districts');
+			$table->unique(['name', 'short_name']);
 		});
     }
 

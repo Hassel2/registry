@@ -11,8 +11,19 @@ class Field extends Model
 
 	protected $table = 'fields';
 	public $timestamps = false;
+	protected $fillable = [
+		'name',
+		'development_degree',
+	];
 
 	public function development_degree() {
 		return $this->hasOne(DevelopmentDegree::class);
+	}
+
+	static function rules(): array {
+		return [
+			'name' => 'required|string|unique:field,name',
+			'development_degree' => 'required|integer|exist:development_degree,id'	
+		];
 	}
 }

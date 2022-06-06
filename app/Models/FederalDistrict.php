@@ -11,4 +11,12 @@ class FederalDistrict extends Model
 
 	protected $table = 'federal_districts';
 	public $timestamps = false;
+
+	protected $fillable = ['name'];
+
+	static function rules(): array {
+		return [
+			'name' => 'required|string|unique:federal_districts,name',
+		];
+	}
 }

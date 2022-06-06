@@ -11,4 +11,11 @@ class DevelopmentDegree extends Model
 
 	protected $table = 'development_degree';
 	public $timestamps = false;
+	protected $fillable = ['degree'];
+
+	static function rules(): array {
+		return [
+			'degree' => 'required|string|unique:development_degree,degree',
+		];
+	}
 }

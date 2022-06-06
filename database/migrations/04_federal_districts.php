@@ -16,6 +16,7 @@ return new class extends Migration
 		Schema::create('federal_districts', function(Blueprint $table) {
 			$table->id();
 			$table->string('name', 200);
+			$table->unique(['name']);
 		});
     }
 

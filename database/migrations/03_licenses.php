@@ -25,6 +25,7 @@ return new class extends Migration
 			$table->date('cancellation_date');
 			$table->date('expiration_date');
 			$table->foreignId('federal_licensing_authority')->constrained('federal_authorities');
+			$table->multiPolygon('geometry');
 		});
     }
 

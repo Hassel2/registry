@@ -15,9 +15,9 @@ return new class extends Migration
     {
 		Schema::create('fields', function(Blueprint $table) {
 			$table->id();
-			$table->foreignId('rf_subject')->constrained('rf_subjects');
 			$table->string('name', 200);
 			$table->foreignId('development_degree')->constrained('development_degree');
+			/* $table->mutiPolygon('geomerty'); */
 		});
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('fields');
+		Schema::dropIfExists('fields');
     }
 };
