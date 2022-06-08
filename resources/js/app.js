@@ -5,4 +5,9 @@ Vue.component('layout-component', require('./components/LayoutComponent.vue').de
 
 const app = new Vue({
     el: '#app',
-});
+    data(){
+        return {
+            search: null
+        }
+    }
+})
