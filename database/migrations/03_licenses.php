@@ -18,14 +18,14 @@ return new class extends Migration
 			$table->string('series', 3);
 			$table->string('number', 5);
 			$table->string('view', 2);
-			$table->foreignId('prev_license')->constrained('licenses');
+			$table->foreignId('prev_license')->nullable()->constrained('licenses');
 			$table->text('status');
 			$table->foreignId('license_area')->constrained('license_areas');
 			$table->date('receiving_date');
-			$table->date('cancellation_date');
+			$table->date('cancellation_date')->nullable();
 			$table->date('expiration_date');
-			$table->foreignId('federal_licensing_authority')->constrained('federal_authorities');
-			$table->multiPolygon('geometry');
+			$table->foreignId('federal_licensing_authority')->nullable()->constrained('federal_authorities');
+			/* $table->multiPolygon('geometry'); */
 		});
     }
 

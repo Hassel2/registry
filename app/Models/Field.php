@@ -22,8 +22,8 @@ class Field extends Model
 
 	static function rules(): array {
 		return [
-			'name' => 'required|string|unique:field,name',
-			'development_degree' => 'required|integer|exist:development_degree,id'	
+			'name' => 'required|string|unique:fields,name',
+			'development_degree' => 'required|integer|exists:development_degree,id'	
 		];
 	}
 }

@@ -11,6 +11,10 @@ class FieldPosition extends Model
 
 	protected $table = 'field_position';
 	public $timestamps = false;
+	protected $fillable = [
+		'field',
+		'subject',
+	];
 
 	public function field() {
 		return $this->hasOne(Field::class);
@@ -18,5 +22,12 @@ class FieldPosition extends Model
 
 	public function rf_subject() {
 		return $this->hasOne(RfSubject::class);
+	}
+
+	static function rules(): array {
+		return [
+			'field' => 'required|integer|exists:fields,id',
+			'subject' => 'required|integer|exists:rf_subjects,id'
+		];
 	}
 }

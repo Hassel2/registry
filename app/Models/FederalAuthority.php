@@ -11,4 +11,13 @@ class FederalAuthority extends Model
 
 	protected $table = 'federal_authorities';
 	public $timestamps = false;
+	protected $fillable = [
+		'name'
+	];
+
+	static function rules(): array {
+		return [
+			'name' => 'string|required|unique:federal_authorities,name',
+		];
+	}
 }

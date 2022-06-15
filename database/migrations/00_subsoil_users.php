@@ -16,14 +16,14 @@ return new class extends Migration
 		Schema::create('subsoil_users', function (Blueprint $table) {
 			$table->id();
 			$table->string('company', 200);
-			$table->string('address', );
-			$table->string('INN', 12);
-			$table->string('OKPO', 10);
-			$table->string('OKATO', 11);
-			$table->string('OGRN', 13);
-			$table->text('comments');
-			$table->string('status', 100);
-			$table->foreignId('management_company')->constrained('subsoil_users');
+			$table->string('address', 500)->nullable();
+			$table->string('INN', 12)->nullable();
+			$table->string('OKPO', 10)->nullable();
+			$table->string('OKATO', 11)->nullable();
+			$table->string('OGRN', 13)->nullable();
+			$table->text('comments')->nullable();
+			$table->string('status', 100)->nullable();
+			$table->foreignId('management_company')->nullable()->constrained('subsoil_users');
 		});
     }
 
