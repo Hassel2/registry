@@ -11,6 +11,10 @@ class FieldComposition extends Model
 
 	protected $table = 'field_composition';
 	public $timestamps = false;
+	protected $fillable = [
+		'field',
+		'license_area'
+	];
 
 	public function field() {
 		return $this->hasOne(Field::class);
@@ -18,5 +22,12 @@ class FieldComposition extends Model
 
 	public function license_area() {
 		return $this->hasOne(LicenseArea::class);
+	}
+
+	static function rules(): array {
+		return [
+			'field' => 'required|integer|exists:fields,id',
+			'license_area' => 'required|integer|exists:license_areas,id',
+		];
 	}
 }
